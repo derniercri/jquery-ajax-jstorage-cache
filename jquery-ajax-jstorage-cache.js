@@ -40,7 +40,7 @@
 
         if ( $.jStorage.setTTL ) {
           if ( cacheTTL )
-            $.jStorage.setTTL( cacheKey, cacheTTL );
+            $.jStorage.setTTL( cacheKey, cacheTTL * 60 * 1000 );
         } 
         else
           log('Your jStorage version doesn\'t support TTL on key, please update jStorage ( http://www.jstorage.info/ )');

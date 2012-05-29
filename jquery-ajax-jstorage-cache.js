@@ -32,10 +32,18 @@
       jqXHR.abort();
     }
     else {
-      var successhandler = options.success;
+      var successhandler = options.success,
+        cacheTTL = options.cacheTTL;
       
       options.success = function( data ) {
         $.jStorage.set( cacheKey, data );
+
+        if ( $.jStorage.setTTL ) {
+          if ( cacheTTL )
+            $.jStorage.setTTL( cacheKey, cacheTTL );
+        } 
+        else
+          log('Your jStorage version doesn\'t support TTL on key, please update jStorage ( http://www.jstorage.info/ )');
 
         // Send a deep clone of data
         var dataCached = $.extend(true, {}, data );

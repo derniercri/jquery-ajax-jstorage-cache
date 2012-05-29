@@ -43,6 +43,7 @@
 
         // Send a deep clone of data
         var dataCached = $.extend(true, {}, data );
+        
         if ( successhandler )
           successhandler( dataCached );
 

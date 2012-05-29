@@ -13,7 +13,7 @@
       return;
 
     var cacheKey;
-    // If cacheKey exist we take it, or default one will be used
+    // If cacheKey exists we take it, or default one will be used
     if ( options.cacheKey )
       cacheKey = options.cacheKey;
     else 
@@ -21,7 +21,7 @@
     
     // isCacheValid is a function to validate cache
     if ( options.isCacheValid &&  ! options.isCacheValid() )
-      $.jStorage.deleteKey( cackeKey );
+      $.jStorage.deleteKey( cacheKey );
     
     if ( $.jStorage.get( cacheKey ) ) {
       // Do not send a direct copy of Data
